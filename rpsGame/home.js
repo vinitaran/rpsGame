@@ -15,7 +15,7 @@ function reset(){
 function deanGen(){
 	var image=document.createElement('img');
 	var div=document.getElementById('flex-dean-gen');
-	image.src = "https://media.tenor.com/images/b2e08e61bb1b2ae7ef73b6289c3d393f/tenor.gif";
+	image.src = "http://thecatapi.com/api/images/get?format=src&type=gif&size=small";
 	div.appendChild(image);
 }
 
