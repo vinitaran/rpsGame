@@ -85,4 +85,60 @@ function rpsFrontEnd(yourChoice,botChoice,message){
 
 }
 
+//challenge-4
 
+var all_button= document.getElementsByTagName('button');
+var copyColor=[];
+for( let i=0; i<all_button.length;i++){
+	copyColor.push(all_button[i].classList[1]);
+}
+console.log(all_button);
+console.log(copyColor);
+
+function change(color){
+	if(color.value=='red'){
+		buttonRed();
+	}
+	else if(color.value=='green'){
+		buttonGreen();
+	}
+	else if(color.value=='reset'){
+		buttonReset();
+	}
+	else if(color.value=='random'){
+		random();
+	}
+}
+
+function buttonRed(){
+	for (let i=0;i<all_button.length;i++)
+	{
+		all_button[i].classList.remove([all_button[i].classList[1]]);
+		all_button[i].classList.add('btn-danger');
+	}
+}
+function buttonGreen(){
+	for (let i=0;i<all_button.length;i++)
+	{
+		all_button[i].classList.remove([all_button[i].classList[1]]);
+		all_button[i].classList.add('btn-success');
+	}
+}
+function buttonReset(){
+	for (let i=0;i<all_button.length;i++)
+	{
+		all_button[i].classList.remove([all_button[i].classList[1]]);
+		all_button[i].classList.add(copyColor[i]);
+	}
+}
+
+function random(){
+	let choice=['btn-danger','btn-success','btn-primary','btn-warning'];
+	
+	for( let i=0;i<all_button.length;i++){
+		var randomNumber = Math.floor(Math.random()*4);
+		all_button[i].classList.remove([all_button[i].classList[1]]);
+		console.log(choice[randomNumber]);
+		all_button[i].classList.add(choice[randomNumber]);
+	}
+}

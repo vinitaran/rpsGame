@@ -1,4 +1,4 @@
-.container-1, .container-2,.container-3{
+.container-1, .container-2,.container-3,.container-4{
     margin: 1em auto;
     text-align: center;
     border: 1px solid black;
@@ -59,3 +59,13 @@
     box-shadow: 10px 20px 34px rgb(62, 62, 197);
 }
 
+.flex-box-pick-color{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid black;
+
+}
+.flex-box-pick-color button,.flex-box-pick-color form{
+    margin: 1em auto;
+}
