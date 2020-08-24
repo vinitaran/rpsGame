@@ -142,3 +142,71 @@ function random(){
 		all_button[i].classList.add(choice[randomNumber]);
 	}
 }
+
+//challenge 5
+
+let blackJackGame={
+	'you':{'scoreSpan':'#your-score','div':'#your-box','score':0},
+	'bot':{'scoreSpan':'#bot-score','div':'#bot-box','score':0},
+	'cards':['2','3','4','5','6','7','8','9','10','K','Q','J','A'],
+	'cardsMap':{'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'K':10,'Q':10,'J':10,'A':[1,11]},
+};
+
+const YOU= blackJackGame['you']
+const BOT= blackJackGame['bot']
+const hitSound= new Audio('sounds/swish.m4a')
+
+
+document.querySelector('#hit').addEventListener('click',blackjackHit);
+document.querySelector('#deal').addEventListener('click',blackjackDeal);
+function blackjackHit(){
+	let card= randomCard();
+	showCard(card,YOU);
+	updateScore(card,YOU);
+	showScore(YOU);
+}
+
+function showCard(card,activePlayer){
+	let cardImage= document.createElement('img');
+	cardImage.src=`images/${card}.png`;
+	cardImage.style.width = '100px';
+	cardImage.style.height = '120px';
+	cardImage.style.padding = "5px 20px 2px 3px";
+	document.querySelector(activePlayer['div']).appendChild(cardImage);
+	hitSound.play();
+}
+
+function blackjackDeal(){
+	let yourImage = document.querySelector('#your-box').querySelectorAll('img');
+	let botImage = document.querySelector('#bot-box').querySelectorAll('img');
+	for(let i=0;i<yourImage.length;i++){
+		yourImage[i].remove();
+	}
+	for(let i=0;i<botImage.length;i++){
+		botImage[i].remove();
+	}
+}
+
+function randomCard(){
+	var randomNum=Math.floor(Math.random()*13);
+	return (blackJackGame['cards'][randomNum]);
+}
+
+function updateScore(card,activePlayer){
+	if(card==='A'){
+		if(activePlayer['score']+blackJackGame['cardsMap'][card][1]<=21){
+			activePlayer['score']+=blackJackGame['cardsMap'][card][1];
+		}
+		else{
+			activePlayer['score']+=blackJackGame['cardsMap'][card][0];
+		}
+	}	
+	else{
+		activePlayer['score']+=blackJackGame['cardsMap'][card];
+	}
+}
+
+function showScore(activePlayer){
+	document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
+}
+

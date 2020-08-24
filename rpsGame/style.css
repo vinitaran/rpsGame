@@ -1,11 +1,11 @@
-.container-1, .container-2,.container-3,.container-4{
+.container-1, .container-2,.container-3,.container-4,.container-5,.container-6,.container-7,.container-8{
     margin: 1em auto;
     text-align: center;
     border: 1px solid black;
     width: 75%;
 }
 
-.flex-box-container-1{
+.flex-box-container-1,.flex-box-container-2,.flex-box-game,.flex-box-result-box,.flex-box-row-1,.flex-box-row-2,.flex-box-row-3{
     width: 100%;
     display:flex;
     border: 1px solid black;
@@ -13,6 +13,19 @@
     justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
+}
+
+.flex-box-row-1,.flex-box-row-2{
+    background: url(https://image.freepik.com/free-vector/poker-table-background-green-color_47243-1068.jpg);
+    color:#ffffff;
+    
+}
+
+.your-box,.bot-box{
+    flex: 1;
+    border: 2px solid #000000;
+    width: 100%;
+    height: 450px;
 }
 
 .flex-box-container-1 div{
@@ -25,22 +38,6 @@
     text-align: center;
     border: 1px solid black;
     width: 75%;
-}
-
-.flex-box-result-box{
-    width: 100%;
-    display:flex;
-    border: 1px solid black;
-    padding: 1em;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
-.flex-box-container-2,.flex-box-game{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .flex-box-container-2 img{
@@ -68,4 +65,14 @@
 }
 .flex-box-pick-color button,.flex-box-pick-color form{
     margin: 1em auto;
+}
+
+.blackjack-score{
+    padding: 100px;
+    border: 3px solid #000000;
+}
+
+table,th,td{
+    padding: 5px;
+    border: 1px solid black;
 }
